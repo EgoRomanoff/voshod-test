@@ -16,6 +16,7 @@ export const generateMetadata = async (
 
   return {
     title: `Список | Страница ${id}`,
+    description: "Тестовое задание для компании ООО Восход",
   }
 }
 
