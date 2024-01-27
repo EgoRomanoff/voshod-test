@@ -10,12 +10,12 @@ const ItemList = ({ items }: {
       <p>Элементы отсутствуют</p>
     )
   }
-  
+
   return (
     <Row
       as="ul"
       xs={1}
-      className="list-unstyled"
+      className="list-unstyled row-gap-2"
     >
       {items.map((item) => (
         <Col key={item.id} as="li">
