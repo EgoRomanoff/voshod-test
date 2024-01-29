@@ -7,7 +7,7 @@ const ListItem = ({ id, name }: {
 }) => {
   return (
     <Card bg="dark" text="light">
-      <Link href={`/item/${id}`}>
+      <Link key={id} href={`/item/${id}`}>
         <CardHeader as="h2" className="text-center">
           {name}
         </CardHeader>

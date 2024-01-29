@@ -31,7 +31,7 @@ const ItemListsPage = async ({ params }: Props) => {
   return (
     <Container
       fluid
-      className="min-vh-100 p-5 d-flex flex-column gap-3"
+      className="p-5 d-flex flex-column gap-3"
     >
       <ItemList items={items} />
 

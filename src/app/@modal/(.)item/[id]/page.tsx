@@ -3,22 +3,24 @@ import { ModalWindow } from "@/features";
 import { getItem } from "@/shared/api";
 
 type Props = {
-  params: { 'item-id': number }
+  params: { id: number }
 }
 
 export const generateMetadata = async (
   { params }: Props,
 ): Promise<Metadata> => {
-  const itemId = params['item-id'];
+  const id = { params };
 
   return {
-    title: `Список | Элемент ${itemId}`,
+    title: `Список | Элемент ${id}`,
     description: "Тестовое задание для компании ООО Восход",
   }
 }
 
-const ItemPage = async ({ params }: Props) => {
-  const { name, text } = await getItem(params['item-id']);
+const ItemPage = async ({
+  params: { id: itemId },
+}: Props) => {
+  const { name, text } = await getItem(itemId);
 
   return (
     <ModalWindow title={name} text={text} />

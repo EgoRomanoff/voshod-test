@@ -12,14 +12,17 @@ export const metadata: Metadata = {
 
 const RootLayout = ({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) => {
   return (
     <html lang="ru">
       <body className={clsx(inter.className)}>
-        <main className="min-vh-100">
+        <main>
           {children}
+          {modal}
         </main>
       </body>
     </html>

@@ -1,46 +1,32 @@
 'use client';
 
-import { useState } from "react";
-import {
-  Modal,
-  ModalDialog,
-  ModalHeader,
-  ModalTitle,
-  ModalBody,
-  // Button,
-} from "react-bootstrap";
+import { useRouter } from "next/navigation";
+import { Modal } from "react-bootstrap";
 
 const ModalWindow = ({ title, text }: {
   title: string,
   text: string,
 }) => {
-  const [show, setShow] = useState(true);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const router = useRouter();
+  const handleClose = () => router.back();
 
   return (
-    <div>
+    <Modal
+      centered
+      size="sm"
+      show={true}
+      onHide={handleClose}
+    >
+      <div className="bg-dark p-3 rounded">
+        <h2 className="mb-3">
+          {title}
+        </h2>
 
-      <Modal
-        backdrop="static"
-        centered
-        show={show}
-        onHide={handleClose}
-      >
-        <ModalDialog>
-          <ModalHeader closeButton>
-            <ModalTitle>
-              {title}
-            </ModalTitle>
-          </ModalHeader>
-
-          <ModalBody>
-            <p>{text}</p>
-          </ModalBody>
-        </ModalDialog>
-      </Modal>
-    </div>
+        <p className="m-0">
+          {text}
+        </p>
+      </div>
+    </Modal>
   );
 };
 
