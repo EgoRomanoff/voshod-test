@@ -19,7 +19,7 @@ const ItemList = ({ items }: {
     >
       {items.map((item) => (
         <Col key={item.id} as="li">
-          <ListItem name={item.name} />
+          <ListItem id={item.id} name={item.name} />
         </Col>
       ))}
     </Row>
