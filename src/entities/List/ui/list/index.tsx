@@ -6,9 +6,7 @@ const ItemList = ({ items }: {
   items: IListItem[],
 }) => {
   if (!items) {
-    return (
-      <p>Элементы отсутствуют</p>
-    )
+    return <p>Элементы отсутствуют</p>;
   }
 
   return (

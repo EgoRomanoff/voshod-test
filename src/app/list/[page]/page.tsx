@@ -9,18 +9,16 @@ type Props = {
 }
 
 export const generateMetadata = async (
-  { params }: Props,
+  { params: { page: pageNum } }: Props,
 ): Promise<Metadata> => {
-  const { page } = params
-
   return {
-    title: `Список | Страница ${page}`,
+    title: `Список | Страница ${pageNum}`,
     description: "Тестовое задание для компании ООО Восход",
   }
 }
 
-const ItemListsPage = async ({ params }: Props) => {
-  const { items, pages, page } = await getList(params.page);
+const ItemListsPage = async ({ params: { page: pageNum } }: Props) => {
+  const { items, pages, page } = await getList(pageNum);
 
   if (!items) {
     return (

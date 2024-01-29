@@ -1,6 +1,6 @@
-import { Metadata } from "next";
 import { ModalItem } from "@/entities/Item";
 import { getItem } from "@/shared/api";
+import { Metadata } from "next";
 
 type Props = {
   params: { id: number }
@@ -19,7 +19,9 @@ const ItemPage = async ({ params: { id: itemId } }: Props) => {
   const { name, text } = await getItem(itemId);
 
   return (
-    <ModalItem title={name} text={text} />
+    <>
+      <ModalItem title={name} text={text} onCloseLink="/list/1" />
+    </>
   );
 };
 
